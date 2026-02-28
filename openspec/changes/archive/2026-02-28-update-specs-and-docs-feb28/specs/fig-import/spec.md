@@ -1,28 +1,4 @@
-# fig-import Specification
-
-## Purpose
-.fig file import pipeline. Parses Figma file header, decompresses Zstd payload, decodes Kiwi schema, extracts NodeChange[], resolves blob references, and populates the scene graph.
-## Requirements
-### Requirement: .fig file import
-The editor SHALL import .fig files via the Kiwi codec pipeline: parse header (magic "fig-kiwi" + version), decompress Zstd, decode Kiwi schema, extract NodeChange[], and build the scene graph.
-
-#### Scenario: Import a .fig file
-- **WHEN** user opens a .fig file
-- **THEN** all nodes from the file appear on the canvas with correct types, positions, sizes, and visual properties
-
-### Requirement: File open via keyboard
-⌘O SHALL open a file dialog for .fig import.
-
-#### Scenario: Open file dialog
-- **WHEN** user presses ⌘O
-- **THEN** a file picker dialog appears filtered for .fig files
-
-### Requirement: Blob reference resolution
-The import pipeline SHALL resolve blob references (images, vector networks, font data) from the .fig file's blob section.
-
-#### Scenario: Import with vector blobs
-- **WHEN** a .fig file containing vector nodes with vectorNetworkBlob data is imported
-- **THEN** the vector paths are correctly decoded and renderable
+## ADDED Requirements
 
 ### Requirement: .fig file export
 The editor SHALL export documents as .fig files. The pipeline: scene graph → Kiwi encode NodeChange[] → compress → write ZIP with fig-kiwi header, schema, message, and thumbnail.
@@ -77,4 +53,3 @@ A .fig file imported and then exported SHALL produce a file that Figma can open 
 #### Scenario: Round-trip fidelity
 - **WHEN** a .fig file is imported into OpenPencil and re-exported
 - **THEN** the exported file opens in Figma with matching visual output
-
