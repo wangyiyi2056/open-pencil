@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "dev": "vite",
+    "dev:stop": "pids=$(for port in 9527 7600 7601; do lsof -tiTCP:$port -sTCP:LISTEN 2>/dev/null; done | sort -u); if [ -n \"$pids\" ]; then kill $pids; fi",
     "build": "bun run lint && vite build",
     "preview": "vite preview",
     "tauri": "tauri",

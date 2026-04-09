@@ -1,0 +1,265 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --shadow-l: rgba(18, 17, 42, 0.07) -1px 0px 0px;
+  --shadow-r: rgba(18, 17, 42, 0.07) 1px 0px 0px;
+  --shadow-t: rgba(18, 17, 42, 0.07) 0px -1px 0px;
+  --shadow-b: rgba(18, 17, 42, 0.07) 0px 1px 0px;
+  /* 自定义变量 */
+  --color: #737a8a;
+  --color-title: #666d79;
+  --color-gray: #bfbfbf;
+  --color-background: #ffffff;
+  --color-background-active: #ffffff;
+  --color-background-hover: #eff1f6;
+  --color-border: #f0f1f2;
+  --color-border-editor: #c6c6c666;
+  --color-background-groups: #f7f8fa;
+  --color-background-views-hover: #eff1f6;
+}
+
+.dark {
+  /* 自定义变量 */
+  --color: #bdc7db;
+  --color-title: #e3e8f4;
+  --color-gray: #4f5b75;
+  --color-background: #1e2430;
+  --color-background-active: #121924;
+  --color-background-hover: #181f29;
+  --color-border: #000000;
+  --color-border-editor: #1e2430;
+  --color-background-groups: #1e2430;
+  --color-background-views-hover: #3e4d6b;
+}
+
+/* element变量 */
+:root {
+  --el-color-primary: #1456f0;
+  --el-color-primary-light-1: #3d73f3; /* ~90% white, 10% #1456f0 */
+  --el-color-primary-light-2: #6690f6; /* ~80% white, 20% #1456f0 */
+  --el-color-primary-light-3: #8faef9; /* ~70% white, 30% #1456f0 */
+  --el-color-primary-light-4: #b8cbfb; /* ~60% white, 40% #1456f0 */
+  --el-color-primary-light-5: #e1e9fe; /* ~50% white, 50% #1456f0 */
+  --el-color-primary-light-6: #fff6ff; /* ~40% white, 60% #1456f0 */
+  --el-color-primary-light-7: #ffffff; /* ~30% white, 70% #1456f0 */
+  --el-color-primary-light-8: #ffffff; /* ~20% white, 80% #1456f0 */
+  --el-color-primary-light-9: #ffffff; /* ~10% white, 90% #1456f0 */
+  color-scheme: light;
+  --surface-1: #f7fafc;
+  --surface-2: #ffffff;
+  --surface-3: #f1f5f9;
+  --surface-4: #e2e8f0;
+  --surface-overlay-50: rgba(148, 163, 184, 0.3);
+  --surface-overlay-20: rgba(148, 163, 184, 0.18);
+  --border-strong: #d4d4d8;
+  --border-soft: #e5e7eb;
+  --text-primary: #0f172a;
+  --text-muted: #475569;
+  --tone-blue-soft: rgba(59, 130, 246, 0.12);
+  --tone-blue-border: rgba(59, 130, 246, 0.2);
+  --tone-green-soft: rgba(34, 197, 94, 0.15);
+  --tone-green-border: rgba(34, 197, 94, 0.25);
+  --tone-red-soft: rgba(248, 113, 113, 0.15);
+  --tone-red-border: rgba(248, 113, 113, 0.25);
+  --tone-purple-soft: rgba(168, 85, 247, 0.12);
+}
+
+:root .screen-container {
+  background: url('/img/screen_light.png') repeat;
+}
+
+/* element变量 */
+html.dark {
+  --el-color-primary: #626aef;
+  --el-color-primary-light-1: #757df2; /* ~90% white, 10% #626aef */
+  --el-color-primary-light-2: #8990f5; /* ~80% white, 20% #626aef */
+  --el-color-primary-light-3: #9ca3f8; /* ~70% white, 30% #626aef */
+  --el-color-primary-light-4: #b0b6fb; /* ~60% white, 40% #626aef */
+  --el-color-primary-light-5: #c3c9fe; /* ~50% white, 50% #626aef */
+  --el-color-primary-light-6: #d7dcff; /* ~40% white, 60% #626aef */
+  --el-color-primary-light-7: #eaefff; /* ~30% white, 70% #626aef */
+  --el-color-primary-light-8: #f3f2ff; /* ~20% white, 80% #626aef */
+  --el-color-primary-light-9: #fbf5ff; /* ~10% white, 90% #626aef */
+}
+
+html.dark .screen-container {
+  background: url('/img/screen_dark.png') repeat;
+}
+
+/* Dark mode theme variables */
+html.dark {
+  color-scheme: dark;
+  --surface-1: #0f172a;
+  --surface-2: #111827;
+  --surface-3: #1f2937;
+  --surface-4: #374151;
+  --surface-overlay-50: rgba(15, 23, 42, 0.5);
+  --surface-overlay-20: rgba(15, 23, 42, 0.2);
+  --border-strong: #1f2937;
+  --border-soft: #273043;
+  --text-primary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --tone-blue-soft: rgba(59, 130, 246, 0.2);
+  --tone-blue-border: rgba(59, 130, 246, 0.35);
+  --tone-green-soft: rgba(34, 197, 94, 0.2);
+  --tone-green-border: rgba(34, 197, 94, 0.35);
+  --tone-red-soft: rgba(248, 113, 113, 0.2);
+  --tone-red-border: rgba(248, 113, 113, 0.35);
+  --tone-purple-soft: rgba(168, 85, 247, 0.25);
+}
+
+/* Tailwind utility class overrides - applies to both light and dark modes */
+.bg-gray-950 {
+  background-color: var(--surface-1) !important;
+}
+
+.bg-gray-900 {
+  background-color: var(--surface-2) !important;
+}
+
+.bg-gray-900\/50 {
+  background-color: var(--surface-overlay-50) !important;
+}
+
+.bg-gray-900\/20 {
+  background-color: var(--surface-overlay-20) !important;
+}
+
+.bg-gray-800 {
+  background-color: var(--surface-3) !important;
+}
+
+.bg-gray-800\/50 {
+  background-color: var(--surface-overlay-50) !important;
+}
+
+.bg-gray-800\/20 {
+  background-color: var(--surface-overlay-20) !important;
+}
+
+.bg-gray-700,
+.bg-gray-600 {
+  background-color: var(--surface-4) !important;
+}
+
+.text-gray-200,
+.text-gray-300 {
+  color: var(--text-primary) !important;
+}
+
+.text-gray-400,
+.text-gray-500,
+.text-gray-600 {
+  color: var(--text-muted) !important;
+}
+
+.border-gray-800 {
+  border-color: var(--border-strong) !important;
+}
+
+.border-gray-700,
+.border-gray-600 {
+  border-color: var(--border-soft) !important;
+}
+
+.bg-blue-900\/20 {
+  background-color: var(--tone-blue-soft) !important;
+}
+
+.border-blue-900\/50 {
+  border-color: var(--tone-blue-border) !important;
+}
+
+.bg-green-900\/20 {
+  background-color: var(--tone-green-soft) !important;
+}
+
+.border-green-900\/50 {
+  border-color: var(--tone-green-border) !important;
+}
+
+.bg-red-900\/20 {
+  background-color: var(--tone-red-soft) !important;
+}
+
+.border-red-900\/50 {
+  border-color: var(--tone-red-border) !important;
+}
+
+.bg-green-900 {
+  background-color: var(--tone-green-soft) !important;
+}
+
+/* Hover state overrides for theme support */
+.hover\:bg-gray-950:hover {
+  background-color: var(--surface-1) !important;
+}
+
+.hover\:bg-gray-900:hover {
+  background-color: var(--surface-2) !important;
+}
+
+.hover\:bg-gray-800:hover {
+  background-color: var(--surface-3) !important;
+}
+
+.hover\:bg-gray-700:hover,
+.hover\:bg-gray-600:hover {
+  background-color: var(--surface-4) !important;
+}
+
+.hover\:text-gray-200:hover,
+.hover\:text-gray-300:hover {
+  color: var(--text-primary) !important;
+}
+
+.hover\:text-gray-400:hover,
+.hover\:text-gray-500:hover {
+  color: var(--text-muted) !important;
+}
+
+.hover\:text-white:hover {
+  color: var(--text-primary) !important;
+}
+
+.hover\:border-gray-800:hover {
+  border-color: var(--border-strong) !important;
+}
+
+.hover\:border-gray-700:hover {
+  border-color: var(--border-soft) !important;
+}
+
+/* Focus state overrides */
+.focus\:bg-gray-800:focus {
+  background-color: var(--surface-3) !important;
+}
+
+.focus\:border-blue-500:focus {
+  border-color: #3b82f6 !important;
+}
+
+.focus\:outline-none:focus {
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--surface-overlay-50);
+}

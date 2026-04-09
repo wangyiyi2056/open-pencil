@@ -1,36 +1,50 @@
-import { browser, localeFrom } from '@nanostores/i18n'
-import { atom } from 'nanostores'
+import { browser, localeFrom } from "@nanostores/i18n";
+import { atom } from "nanostores";
 
-export const AVAILABLE_LOCALES = ['en', 'de', 'es', 'fr', 'it', 'pl', 'ru', 'zh-CN'] as const
-export type Locale = (typeof AVAILABLE_LOCALES)[number]
+export const AVAILABLE_LOCALES = [
+  "en",
+  "de",
+  "es",
+  "fr",
+  "it",
+  "pl",
+  "ru",
+  "zh-CN",
+  "zh-TW",
+] as const;
+export type Locale = (typeof AVAILABLE_LOCALES)[number];
 
 export const LOCALE_LABELS: Record<Locale, string> = {
-  en: 'English',
-  de: 'Deutsch',
-  es: 'Español',
-  fr: 'Français',
-  it: 'Italiano',
-  pl: 'Polski',
-  ru: 'Русский',
-  'zh-CN': '中文（简体）'
-}
+  en: "English",
+  de: "Deutsch",
+  es: "Español",
+  fr: "Français",
+  it: "Italiano",
+  pl: "Polski",
+  ru: "Русский",
+  "zh-CN": "中文简体",
+  "zh-TW": "繁體中文",
+};
 
-const LOCALE_STORAGE_KEY = 'open-pencil-locale'
+const LOCALE_STORAGE_KEY = "open-pencil-locale";
 
-export const localeSetting = atom<Locale | undefined>(undefined)
+export const localeSetting = atom<Locale | undefined>(undefined);
 
-export const locale = localeFrom(localeSetting, browser({ available: AVAILABLE_LOCALES }))
+export const locale = localeFrom(
+  localeSetting,
+  browser({ available: AVAILABLE_LOCALES }),
+);
 
 export function setLocale(code: Locale) {
-  localeSetting.set(code)
-  if (typeof localStorage !== 'undefined') {
-    localStorage.setItem(LOCALE_STORAGE_KEY, code)
+  localeSetting.set(code);
+  if (typeof localStorage !== "undefined") {
+    localStorage.setItem(LOCALE_STORAGE_KEY, code);
   }
 }
 
-if (typeof localStorage !== 'undefined') {
-  const saved = localStorage.getItem(LOCALE_STORAGE_KEY) as Locale | null
+if (typeof localStorage !== "undefined") {
+  const saved = localStorage.getItem(LOCALE_STORAGE_KEY) as Locale | null;
   if (saved && AVAILABLE_LOCALES.includes(saved)) {
-    localeSetting.set(saved)
+    localeSetting.set(saved);
   }
 }

@@ -1,0 +1,310 @@
+.designer-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .flex {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .designer-main {
+    width: 100%;
+    height: calc(100% - 36px);
+    display: flex;
+    box-sizing: border-box;
+  }
+
+  .selectall {
+    position: absolute;
+    border: 1px dotted var(--el-color-primary);
+    z-index: 10000;
+  }
+  .selectbg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 9999;
+  }
+  .selectflag {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 9999;
+    cursor: move;
+  }
+  .el-menu--horizontal .el-menu .el-menu-item,
+  .el-menu--horizontal .el-menu .el-submenu__title {
+    font-size: 12px;
+  }
+
+  .menu__scrollbar {
+    flex: 1;
+    box-sizing: border-box;
+    background-color: var(--color-background-active);
+    .el-tabs__header {
+      margin-bottom: 0;
+    }
+  }
+  .menu__button {
+    display: flex;
+    li {
+      margin: 0 5px;
+      list-style: none;
+    }
+  }
+
+  .top {
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .refer-line-img {
+    position: absolute;
+    left: 0;
+    z-index: 5;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    img {
+      width: 100%;
+    }
+  }
+  .screens {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
+  .screens-drag {
+    cursor: grab;
+  }
+  .screen-container {
+    position: relative;
+    width: 5000px;
+    height: 3000px;
+  }
+  .canvas {
+    position: absolute;
+    transform-origin: 0 0;
+    top: 50%;
+    left: 50%;
+  }
+  .footer__menu {
+    padding-top: 8px;
+    margin-right: 370px;
+    float: right;
+    width: 300px;
+  }
+  .app--none {
+    padding: 0;
+    height: 100%;
+    position: fixed;
+    // width: 500px;
+    // height: 500px;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    background-color: var(--color-background);
+    // overflow: auto;
+    // transform: scale(1) !important;
+  }
+  .app--none .wrapper {
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .app--none .content {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .container {
+    user-select: none;
+    transform-origin: 0 0;
+    position: relative;
+  }
+
+  .grade {
+    width: 100%;
+    height: 100%;
+    background-size:
+      30px 30px,
+      30px 30px;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 0px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 0px);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .title {
+    padding: 0 10px;
+    box-sizing: border-box;
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 14px;
+    background-color: var(--color-background);
+    border: none;
+    color: var(--color);
+    &--left {
+      text-align: left;
+    }
+    &_box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &_menu {
+      display: flex;
+    }
+  }
+  .indicator .value {
+    background-color: var(--color-background);
+  }
+  .avue-crud__header {
+    background-color: var(--el-table-tr-bg-color);
+    color: var(--el-table-text-color);
+  }
+  .avue-crud .el-table th.el-table__cell {
+    word-break: break-word;
+    background-color: var(--el-table-tr-bg-color);
+    color: var(--el-table-text-color);
+  }
+  .innerMenu {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: space-between;
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    height: 41px;
+    background: var(--color-background-active);
+    border: 1px solid var(--color-border);
+    border-top: none;
+    .left_btns {
+      display: flex;
+      align-items: center;
+    }
+    .right_btns {
+      display: flex;
+    }
+  }
+  :deep() {
+    .el-collapse {
+      border-top: none;
+      border-bottom: none;
+    }
+
+    .el-collapse-item__header {
+      position: relative;
+      padding-left: 30px;
+      height: 40px;
+      line-height: 40px;
+      background: transparent;
+      border-bottom: none;
+      color: var(--color-title);
+      font-size: 12px;
+      border-color: #282e3a;
+      min-height: 40px;
+      &:hover,
+      &:hover i {
+        color: var(--el-color-primary);
+      }
+      &.is-active {
+        background-color: var(--color-background-active);
+      }
+    }
+
+    .el-collapse-item__arrow {
+      position: absolute;
+      left: 10px;
+      line-height: 40px;
+      color: var(--color-title);
+
+      &.is-active {
+        background-color: transparent;
+      }
+    }
+
+    .el-collapse-item__content {
+      padding: 0;
+    }
+
+    .el-collapse-item__wrap {
+      background-color: var(--color-background-active);
+      border-bottom: none;
+    }
+  }
+}
+
+.role-box {
+  width: 100%;
+  &-item {
+    display: flex;
+    margin: 10px 0;
+    .tit {
+      width: 50px;
+      display: flex;
+    }
+    .ipt {
+      flex: 1;
+    }
+  }
+  .el-button {
+    float: right;
+  }
+}
+
+.dropdown_menu {
+  .label {
+    width: 70px;
+    line-height: 28px;
+    color: var(--color);
+  }
+  .info {
+    text-align: right;
+    width: calc(100% - 70px);
+    line-height: 28px;
+    color: var(--color-gray);
+  }
+}
+.noborder-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  margin-left: 8px;
+  border-radius: 4px;
+  color: var(--color);
+  &:hover {
+    color: var(--el-color-primary);
+    background-color: rgba(68, 128, 249, 0.16);
+  }
+  &.active {
+    color: var(--el-color-primary);
+    background-color: rgba(68, 128, 249, 0.16);
+  }
+}
+:deep(.el-segmented) {
+  .is-selected .el-icon {
+    color: var(--el-color-white);
+  }
+  --el-border-radius-base: 6px;
+}
